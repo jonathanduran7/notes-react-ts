@@ -1,11 +1,15 @@
 .notesPage{
    display: flex;
+   height: 100vh;
 }
 
 .barraLateral{
-   background-color: red;
+   width: 17%;
+   margin: 5px;
+   /* background-color: red; */
 }
 
 .contenidoNota{
+   width: 83%;
    background-color: blue;
 }
