@@ -1,0 +1,11 @@
+.notesPage{
+   display: flex;
+}
+
+.barraLateral{
+   background-color: red;
+}
+
+.contenidoNota{
+   background-color: blue;
+}
