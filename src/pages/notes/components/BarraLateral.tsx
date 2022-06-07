@@ -10,12 +10,10 @@ const style = {
 const BarraLateral = () => {
    return (
       <div className="barraLateral">
-         {/* Buscador */}
-         <div>
+         <div className="search">
             <TextField id="standard-basic" label="Search" variant="standard" fullWidth />
          </div>
 
-         {/* lista de ntoas */}
          <div className="listNotes">
             <List sx={style} component="nav" aria-label="mailbox folders">
                {
@@ -25,7 +23,6 @@ const BarraLateral = () => {
                      </ListItem>
                   ))
                }
-
             </List>
          </div>
       </div>
