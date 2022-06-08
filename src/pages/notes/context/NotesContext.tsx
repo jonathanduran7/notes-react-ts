@@ -4,7 +4,8 @@ import { INote } from "../interface/Note.interface";
 
 interface NotesState {
    note: INote,
-   listNotes: INote[]
+   listNotes: INote[],
+   selectedNote: Function
 }
 
 const NotesContext = createContext({} as NotesState)

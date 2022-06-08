@@ -18,7 +18,11 @@ export const NotesProvider = ({children}: Props) => {
    const [note, setNote] = useState<INote>(initialValue)
    const [listNotes, setListNotes] = useState<INote[]>(NotesData)
 
-   const data = {note,listNotes}
+   const selectedNote = (note: INote) => {
+      setNote(note)
+   }
+
+   const data = {note,listNotes, selectedNote}
    return (
       <NotesContext.Provider value={data}>
          {children}
