@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { NotesData } from "../../../utils/NotesData"
 import { INote } from "../interface/Note.interface"
 import NotesContext from "./NotesContext"
 
@@ -15,7 +16,7 @@ const initialValue: INote = {
 export const NotesProvider = ({children}: Props) => {
 
    const [note, setNote] = useState<INote>(initialValue)
-   const [listNotes, setListNotes] = useState<INote[]>([])
+   const [listNotes, setListNotes] = useState<INote[]>(NotesData)
 
    const data = {note,listNotes}
    return (
