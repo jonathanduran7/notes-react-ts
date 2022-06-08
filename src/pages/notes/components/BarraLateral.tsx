@@ -1,6 +1,7 @@
 import { Button, Divider, List, ListItem, ListItemText, TextField } from "@mui/material"
 import { useContext } from "react";
 import NotesContext from "../context/NotesContext";
+import { INote } from "../interface/Note.interface";
 
 const style = {
    width: '100%',
@@ -10,11 +11,7 @@ const style = {
 
 const BarraLateral = () => {
 
-   const selectedNote = (id: number) => {
-      console.log(id)
-   }
-
-   const {listNotes} = useContext(NotesContext)
+   const {listNotes, selectedNote} = useContext(NotesContext)
 
    return (
       <div className="barraLateral">
@@ -26,7 +23,7 @@ const BarraLateral = () => {
             <List sx={style} component="nav" aria-label="mailbox folders">
                {
                   listNotes.map(note => (
-                     <ListItem button divider onClick={() => selectedNote(note.id)} key={note.id}>
+                     <ListItem button divider onClick={() => selectedNote(note)} key={note.id}>
                         <ListItemText primary={`${note.title}`} />
                      </ListItem>
                   ))
