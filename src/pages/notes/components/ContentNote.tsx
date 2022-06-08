@@ -11,6 +11,10 @@ const ContentNote = () => {
       <Typography variant="h3" component="h2">
         {note.title}
       </Typography>
+
+      <p>
+        {note.content}
+      </p>
     </div>
   )
 }
