@@ -8,6 +8,11 @@ const style = {
 };
 
 const BarraLateral = () => {
+
+   const selectedNote = (id: number) => {
+      console.log(id)
+   }
+
    return (
       <div className="barraLateral">
          <div className="search">
@@ -18,7 +23,7 @@ const BarraLateral = () => {
             <List sx={style} component="nav" aria-label="mailbox folders">
                {
                   NotesData.map(note => (
-                     <ListItem button divider>
+                     <ListItem button divider onClick={() => selectedNote(note.id)} key={note.id}>
                         <ListItemText primary={`${note.title}`} />
                      </ListItem>
                   ))

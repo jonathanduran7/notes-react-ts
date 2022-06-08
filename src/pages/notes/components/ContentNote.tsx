@@ -1,6 +1,8 @@
 const ContentNote = () => {
   return (
-    <div className="contenidoNota">ContentNote</div>
+    <div className="contenidoNota">
+       La nota seleccionada es 1
+    </div>
   )
 }
 
