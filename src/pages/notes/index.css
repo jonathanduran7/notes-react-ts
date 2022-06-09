@@ -10,6 +10,7 @@
 }
 
 .contenidoNota{
+   position: relative;
    width: 83%;
    background-color: #eee;
    padding: 10px;
@@ -23,4 +24,10 @@
    height: 93%;
    margin-top: 10px;
    overflow-y: scroll;
+}
+
+.addNota {
+   position: absolute!important;
+   bottom: 20px;
+   right: 20px;
 }

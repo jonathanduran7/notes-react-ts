@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material"
+import { Button, Divider, Typography } from "@mui/material"
 import { useContext } from "react"
 import NotesContext from "../context/NotesContext"
 
@@ -15,6 +15,8 @@ const ContentNote = () => {
       <p>
         {note.content}
       </p>
+
+      <Button variant="contained" className="addNota">Crear Nota</Button>
     </div>
   )
 }
