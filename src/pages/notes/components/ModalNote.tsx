@@ -1,4 +1,4 @@
-import { Modal, TextField, Typography } from "@mui/material"
+import { Button, Modal, TextField, Typography } from "@mui/material"
 import { Box } from "@mui/system"
 
 const style = {
@@ -36,8 +36,13 @@ const ModalNote = ({ openModal, handleClose }: Props) => {
                   <TextField label="Titulo" placeholder="Insertar el titulo" variant="standard" fullWidth />
                </div>
 
-               <div style={{marginTop: '20px'}}>
-                  <TextField label="Contenido" placeholder="Inserte el contenido de la nota..." variant="standard" fullWidth multiline rows={22} />
+               <div style={{ marginTop: '20px' }}>
+                  <TextField label="Contenido" placeholder="Inserte el contenido de la nota..." variant="standard" fullWidth multiline rows={20} />
+               </div>
+
+               <div style={{ display: 'flex', marginTop: '17px', gap: '5px', justifyContent: 'end' }}>
+                  <Button variant="outlined" onClick={() => handleClose()}>Cancelar</Button>
+                  <Button variant="contained" onClick={() => handleClose()}>Guardar</Button>
                </div>
             </Typography>
          </Box>
