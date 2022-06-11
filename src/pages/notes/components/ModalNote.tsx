@@ -1,4 +1,4 @@
-import { Modal, Typography } from "@mui/material"
+import { Modal, TextField, Typography } from "@mui/material"
 import { Box } from "@mui/system"
 
 const style = {
@@ -6,10 +6,12 @@ const style = {
    top: '50%',
    left: '50%',
    transform: 'translate(-50%, -50%)',
-   width: 400,
+   width: 600,
    bgcolor: 'white',
    boxShadow: 24,
    p: 4,
+   borderRadius: 2,
+   height: 500
 };
 
 interface Props {
@@ -30,8 +32,13 @@ const ModalNote = ({ openModal, handleClose }: Props) => {
                Crear Nota
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-               {/* Aca va el formulario */}
-               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+               <div>
+                  <TextField label="Titulo" placeholder="Insertar el titulo" variant="standard" fullWidth />
+               </div>
+
+               <div style={{marginTop: '20px'}}>
+                  <TextField label="Contenido" placeholder="Inserte el contenido de la nota..." variant="standard" fullWidth multiline rows={22} />
+               </div>
             </Typography>
          </Box>
       </Modal>
