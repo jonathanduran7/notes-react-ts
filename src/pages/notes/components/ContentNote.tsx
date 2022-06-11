@@ -13,13 +13,15 @@ const ContentNote = () => {
 
   return (
     <div className="contenidoNota">
-      <Typography variant="h3" component="h2">
+      <Typography variant="h2" component="h2">
         {note.title}
       </Typography>
 
-      <p>
-        {note.content}
-      </p>
+      <div>
+        <p>
+          {note.content}
+        </p>
+      </div>
 
       <Button variant="contained" className="addNota" onClick={handleOpen}>Crear Nota</Button>
       <ModalNote handleClose={handleClose} openModal={openModal} />

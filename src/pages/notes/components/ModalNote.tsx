@@ -1,6 +1,6 @@
 import { Button, Modal, TextField, Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import NotesContext from "../context/NotesContext";
 
 const style = {
@@ -23,7 +23,11 @@ interface Props {
 
 const ModalNote = ({ openModal, handleClose }: Props) => {
 
-   const { note, handleChangeForm } = useContext(NotesContext)
+   const { note, handleChangeForm, handleSubmit, resetValue} = useContext(NotesContext)
+
+   useEffect(() => {
+      if(openModal) resetValue()
+   }, [openModal])
 
    return (
       <Modal
@@ -33,10 +37,11 @@ const ModalNote = ({ openModal, handleClose }: Props) => {
          aria-describedby="modal-modal-description"
       >
          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
+            <Typography id="modal-modal-title" variant="h6" component="h6">
                Crear Nota
             </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+
+            <Typography id="modal-modal-description" sx={{ mt: 2 }} component="div">
                <div>
                   <TextField
                      value={note.title}
@@ -65,7 +70,7 @@ const ModalNote = ({ openModal, handleClose }: Props) => {
 
                <div style={{ display: 'flex', marginTop: '17px', gap: '5px', justifyContent: 'end' }}>
                   <Button variant="outlined" onClick={() => handleClose()}>Cancelar</Button>
-                  <Button variant="contained" onClick={() => handleClose()}>Guardar</Button>
+                  <Button variant="contained" onClick={() => handleSubmit()}>Guardar</Button>
                </div>
             </Typography>
          </Box>
