@@ -15,9 +15,10 @@ const ContentNote = () => {
   return (
     <div className="contenidoNota">
       <Typography variant="h2" component="h2" onMouseOver={() => setTitleOver(true)} onMouseOut={() => setTitleOver(false)}>
-        {note.title} {titleOver && "Esta seleccionado"}
-        {/* <button onMouseOver={() => setTitleOver(true)} onMouseOut={() => setTitleOver(false)} >hola</button> */}
+        {note.title} {titleOver && "Seleccionado"}
       </Typography>
+
+      {/* TODO: button for confirm edit title */}
 
       <div style={{paddingTop: '20px'}}>
         <p>
