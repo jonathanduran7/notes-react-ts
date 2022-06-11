@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { NotesData } from "../../../utils/NotesData"
 import { INote } from "../interface/Note.interface"
 import NotesContext from "./NotesContext"
@@ -22,7 +22,16 @@ export const NotesProvider = ({children}: Props) => {
       setNote(note)
    }
 
-   const data = {note,listNotes, selectedNote}
+   const handleChangeForm = (e: React.FormEvent<HTMLInputElement>)  => {
+      const {name, value} = e.currentTarget
+
+      setNote({
+         ...note,
+         [name]: value
+      })
+   }
+
+   const data = {note,listNotes, selectedNote, handleChangeForm}
    return (
       <NotesContext.Provider value={data}>
          {children}
