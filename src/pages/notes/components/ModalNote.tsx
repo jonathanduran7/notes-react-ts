@@ -1,5 +1,7 @@
 import { Button, Modal, TextField, Typography } from "@mui/material"
 import { Box } from "@mui/system"
+import { useContext } from "react";
+import NotesContext from "../context/NotesContext";
 
 const style = {
    position: 'absolute',
@@ -20,6 +22,9 @@ interface Props {
 }
 
 const ModalNote = ({ openModal, handleClose }: Props) => {
+
+   const { note, handleChangeForm } = useContext(NotesContext)
+
    return (
       <Modal
          open={openModal}
@@ -33,11 +38,29 @@ const ModalNote = ({ openModal, handleClose }: Props) => {
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                <div>
-                  <TextField label="Titulo" placeholder="Insertar el titulo" variant="standard" fullWidth />
+                  <TextField
+                     value={note.title}
+                     label="Titulo"
+                     name="title"
+                     placeholder="Insertar el titulo"
+                     variant="standard"
+                     fullWidth
+                     onChange={(e) => handleChangeForm(e)}
+                  />
                </div>
 
                <div style={{ marginTop: '20px' }}>
-                  <TextField label="Contenido" placeholder="Inserte el contenido de la nota..." variant="standard" fullWidth multiline rows={20} />
+                  <TextField
+                     value={note.content}
+                     name="content"
+                     label="Contenido"
+                     placeholder="Inserte el contenido de la nota..."
+                     variant="standard"
+                     fullWidth
+                     multiline
+                     rows={20}
+                     onChange={(e) => handleChangeForm(e)}
+                  />
                </div>
 
                <div style={{ display: 'flex', marginTop: '17px', gap: '5px', justifyContent: 'end' }}>
