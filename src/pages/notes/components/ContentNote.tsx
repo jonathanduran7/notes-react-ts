@@ -2,6 +2,7 @@ import { Box, Button, Divider, Modal, Typography } from "@mui/material"
 import { useContext, useState } from "react"
 import NotesContext from "../context/NotesContext"
 import ModalNote from "./ModalNote";
+import EditIcon from '@mui/icons-material/Edit';
 
 const ContentNote = () => {
 
@@ -14,13 +15,22 @@ const ContentNote = () => {
 
   return (
     <div className="contenidoNota">
-      <Typography variant="h2" component="h2" onMouseOver={() => setTitleOver(true)} onMouseOut={() => setTitleOver(false)}>
-        {note.title} {titleOver && "Seleccionado"}
-      </Typography>
+      <div onMouseOver={() => setTitleOver(true)} onMouseOut={() => setTitleOver(false)} style={{display: 'flex'}}>
+        <Typography variant="h3" component="h3" style={{textTransform: "uppercase" }}>
+          {note.title}
+        </Typography>
+
+        {
+          titleOver && (
+            <EditIcon></EditIcon>
+          )
+        }
+      </div>
+
 
       {/* TODO: button for confirm edit title */}
 
-      <div style={{paddingTop: '20px'}}>
+      <div style={{ paddingTop: '20px' }}>
         <p>
           {note.content}
         </p>
