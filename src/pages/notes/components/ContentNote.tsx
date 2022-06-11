@@ -17,7 +17,7 @@ const ContentNote = () => {
         {note.title}
       </Typography>
 
-      <div>
+      <div style={{paddingTop: '20px'}}>
         <p>
           {note.content}
         </p>
