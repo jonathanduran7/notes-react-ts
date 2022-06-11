@@ -15,6 +15,7 @@ const initialValue: INote = {
 export const NotesProvider = ({children}: Props) => {
 
    const [note, setNote] = useState<INote>(initialValue)
+   const [form, setForm] = useState<INote>(initialValue)
    const [listNotes, setListNotes] = useState<INote[]>([])
 
    const selectedNote = (note: INote) => {
@@ -24,24 +25,25 @@ export const NotesProvider = ({children}: Props) => {
    const handleChangeForm = (e: React.FormEvent<HTMLInputElement>)  => {
       const {name, value} = e.currentTarget
 
-      setNote({
-         ...note,
+      setForm({
+         ...form,
          [name]: value
       })
    }
 
    const resetValue = () => {
-      setNote(initialValue)
+      setForm(initialValue)
    }
 
-   const handleSubmit = () => {
+   const handleSubmit = (closeModal: Function) => {
       const id = listNotes.length + 1
-      note.id = id
-      setListNotes([...listNotes, note])
-      setNote(initialValue)
+      form.id = id
+      setListNotes([...listNotes, form])
+      setForm(initialValue)
+      closeModal()
    }
 
-   const data = {note,listNotes, selectedNote, handleChangeForm, handleSubmit,resetValue}
+   const data = {note,form,listNotes, selectedNote, handleChangeForm, handleSubmit,resetValue}
    return (
       <NotesContext.Provider value={data}>
          {children}

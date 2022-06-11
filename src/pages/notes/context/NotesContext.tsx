@@ -4,6 +4,7 @@ import { INote } from "../interface/Note.interface";
 
 interface NotesState {
    note: INote,
+   form: INote,
    listNotes: INote[],
    selectedNote: Function,
    handleChangeForm: Function,

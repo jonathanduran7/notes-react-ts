@@ -23,7 +23,7 @@ interface Props {
 
 const ModalNote = ({ openModal, handleClose }: Props) => {
 
-   const { note, handleChangeForm, handleSubmit, resetValue} = useContext(NotesContext)
+   const { form, handleChangeForm, handleSubmit, resetValue} = useContext(NotesContext)
 
    useEffect(() => {
       if(openModal) resetValue()
@@ -44,7 +44,7 @@ const ModalNote = ({ openModal, handleClose }: Props) => {
             <Typography id="modal-modal-description" sx={{ mt: 2 }} component="div">
                <div>
                   <TextField
-                     value={note.title}
+                     value={form.title}
                      label="Titulo"
                      name="title"
                      placeholder="Insertar el titulo"
@@ -56,7 +56,7 @@ const ModalNote = ({ openModal, handleClose }: Props) => {
 
                <div style={{ marginTop: '20px' }}>
                   <TextField
-                     value={note.content}
+                     value={form.content}
                      name="content"
                      label="Contenido"
                      placeholder="Inserte el contenido de la nota..."
@@ -70,7 +70,7 @@ const ModalNote = ({ openModal, handleClose }: Props) => {
 
                <div style={{ display: 'flex', marginTop: '17px', gap: '5px', justifyContent: 'end' }}>
                   <Button variant="outlined" onClick={() => handleClose()}>Cancelar</Button>
-                  <Button variant="contained" onClick={() => handleSubmit()}>Guardar</Button>
+                  <Button variant="contained" onClick={() => handleSubmit(handleClose)}>Guardar</Button>
                </div>
             </Typography>
          </Box>
