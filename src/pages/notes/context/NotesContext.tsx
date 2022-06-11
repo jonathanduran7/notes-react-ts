@@ -6,7 +6,9 @@ interface NotesState {
    note: INote,
    listNotes: INote[],
    selectedNote: Function,
-   handleChangeForm: Function
+   handleChangeForm: Function,
+   handleSubmit: Function,
+   resetValue: Function
 }
 
 const NotesContext = createContext({} as NotesState)
