@@ -8,13 +8,15 @@ const ContentNote = () => {
   const { note } = useContext(NotesContext)
 
   const [openModal, setOpenModal] = useState(false)
+  const [titleOver, setTitleOver] = useState(false)
   const handleOpen = () => setOpenModal(true);
   const handleClose = () => setOpenModal(false);
 
   return (
     <div className="contenidoNota">
-      <Typography variant="h2" component="h2">
-        {note.title}
+      <Typography variant="h2" component="h2" onMouseOver={() => setTitleOver(true)} onMouseOut={() => setTitleOver(false)}>
+        {note.title} {titleOver && "Esta seleccionado"}
+        {/* <button onMouseOver={() => setTitleOver(true)} onMouseOut={() => setTitleOver(false)} >hola</button> */}
       </Typography>
 
       <div style={{paddingTop: '20px'}}>
