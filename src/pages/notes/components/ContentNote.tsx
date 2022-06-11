@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Modal, Typography } from "@mui/material"
+import { Box, Button, Divider, Modal, TextField, Typography } from "@mui/material"
 import { useContext, useState } from "react"
 import NotesContext from "../context/NotesContext"
 import ModalNote from "./ModalNote";
@@ -10,25 +10,34 @@ const ContentNote = () => {
 
   const [openModal, setOpenModal] = useState(false)
   const [titleOver, setTitleOver] = useState(false)
+  const [viewInput, setViewInput] = useState(false)
   const handleOpen = () => setOpenModal(true);
   const handleClose = () => setOpenModal(false);
 
   return (
     <div className="contenidoNota">
-      <div onMouseOver={() => setTitleOver(true)} onMouseOut={() => setTitleOver(false)} style={{display: 'flex'}}>
-        <Typography variant="h3" component="h3" style={{textTransform: "uppercase" }}>
-          {note.title}
-        </Typography>
-
-        {
-          titleOver && (
-            <EditIcon></EditIcon>
-          )
-        }
-      </div>
 
 
-      {/* TODO: button for confirm edit title */}
+      {
+        viewInput ? (
+          <div>
+            <TextField placeholder="Inserte titulo" value={note.title}/>
+            <Button onClick={() => setViewInput(false)}>Cancelar</Button>
+          </div>
+        ) : (
+          <div onMouseOver={() => setTitleOver(true)} onMouseOut={() => setTitleOver(false)} style={{ display: 'flex' }}>
+            <Typography variant="h3" component="h3" style={{ textTransform: "uppercase" }}>
+              {note.title}
+            </Typography>
+
+            {
+              titleOver && (
+                <EditIcon onClick={() => setViewInput(true)}></EditIcon>
+              )
+            }
+          </div>
+        )
+      }
 
       <div style={{ paddingTop: '20px' }}>
         <p>
