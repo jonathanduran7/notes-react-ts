@@ -16,6 +16,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Button } from "@mui/material";
+import CreateCategoryModal from './components/CreateCategoryModal';
 
 const drawerWidth = 240;
 
@@ -72,6 +73,17 @@ const TasksPage = () => {
 
    const theme = useTheme();
    const [open, setOpen] = React.useState(false);
+   const [openModal, setOpenModal] = React.useState(false);
+
+   const [tasksCategory, setTasksCategory] = React.useState([
+      {id: 0, name: 'Compras'},
+      {id: 1, name: 'Universidad'},
+      {id: 2, name: 'Casa'},
+      {id: 3, name: 'Trabajo'},
+   ])
+
+   const handleOpenModal = () => setOpenModal(true);
+   const handleCloseModal = () => setOpenModal(false);
 
    const handleDrawerOpen = () => {
       setOpen(true);
@@ -119,14 +131,14 @@ const TasksPage = () => {
                </IconButton>
             </DrawerHeader>
             <Divider />
-            <Button variant="contained" color="info" style={{width: '90%', margin: '5px auto'}}>
+            <Button variant="contained" color="info" style={{ width: '90%', margin: '5px auto' }} onClick={() => handleOpenModal()}>
                Crear Categoria
             </Button>
             <List>
-               {['Trabajo', 'Universidad', 'Compras', 'Casa'].map((text, index) => (
-                  <ListItem key={text} disablePadding>
+               {tasksCategory.map((task) => (
+                  <ListItem key={task.id} disablePadding>
                      <ListItemButton>
-                        <ListItemText primary={text} />
+                        <ListItemText primary={task.name} />
                      </ListItemButton>
                   </ListItem>
                ))}
@@ -135,7 +147,11 @@ const TasksPage = () => {
          <Main open={open}>
             <DrawerHeader />
             asfsd
+            asfas
+            asfs
          </Main>
+
+         <CreateCategoryModal openModal={openModal} handleCloseModal={handleCloseModal}/>
       </Box>
    )
 }
