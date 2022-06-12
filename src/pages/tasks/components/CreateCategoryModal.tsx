@@ -1,5 +1,7 @@
 import { Button, Modal, TextField, Typography } from "@mui/material"
 import { Box } from "@mui/system"
+import { useContext } from "react";
+import TaskContext from "../context/TaskContext";
 
 
 const styleModal = {
@@ -20,7 +22,10 @@ interface Props {
    handleCloseModal: Function
 }
 
-const CreateCategoryModal = ({openModal, handleCloseModal}: Props) => {
+const CreateCategoryModal = ({ openModal, handleCloseModal }: Props) => {
+
+   const { form, handleSubmit, handleChangeForm } = useContext(TaskContext)
+
    return (
       <Modal
          open={openModal}
@@ -33,11 +38,20 @@ const CreateCategoryModal = ({openModal, handleCloseModal}: Props) => {
                Crear Categoria
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }} component="div">
-               <TextField variant="standard" placeholder="Inserte Titulo" label="Titulo" fullWidth autoComplete="false"/>
+               <TextField
+                  variant="standard"
+                  placeholder="Inserte Titulo"
+                  label="Titulo"
+                  fullWidth
+                  autoComplete="false"
+                  value={form.title}
+                  name="title"
+                  onChange={(e) => handleChangeForm(e)}
+                  />
 
-               <div style={{marginTop: '25px', display: 'flex', justifyContent: 'end', gap: '5px'}}>
+               <div style={{ marginTop: '25px', display: 'flex', justifyContent: 'end', gap: '5px' }}>
                   <Button variant="outlined" onClick={() => handleCloseModal()}>Cancelar</Button>
-                  <Button variant="contained" onClick={() => handleCloseModal()}>Confirmar</Button>
+                  <Button variant="contained" onClick={() => handleSubmit(handleCloseModal)}>Confirmar</Button>
                </div>
             </Typography>
          </Box>

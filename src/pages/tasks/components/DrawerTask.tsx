@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 import { Button, Divider, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material"
 import IconButton from '@mui/material/IconButton';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import TaskContext from "../context/TaskContext";
 
 const drawerWidth = 240;
 
@@ -17,12 +18,7 @@ interface Props {
 
 const DrawerTask = ({ DrawerHeader, handleDrawerClose, open, theme, handleOpenModal }: Props) => {
 
-   const [tasksCategory, setTasksCategory] = useState([
-      { id: 0, name: 'Compras' },
-      { id: 1, name: 'Universidad' },
-      { id: 2, name: 'Casa' },
-      { id: 3, name: 'Trabajo' },
-   ])
+   const {listTask} = useContext(TaskContext)
 
    return (
       <Drawer
@@ -48,10 +44,10 @@ const DrawerTask = ({ DrawerHeader, handleDrawerClose, open, theme, handleOpenMo
             Crear Categoria
          </Button>
          <List>
-            {tasksCategory.map((task) => (
+            {listTask.map((task) => (
                <ListItem key={task.id} disablePadding>
                   <ListItemButton>
-                     <ListItemText primary={task.name} />
+                     <ListItemText primary={task.title} />
                   </ListItemButton>
                </ListItem>
             ))}
