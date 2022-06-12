@@ -1,4 +1,4 @@
-import { Modal, Typography } from "@mui/material"
+import { Button, Modal, TextField, Typography } from "@mui/material"
 import { Box } from "@mui/system"
 
 
@@ -30,10 +30,15 @@ const CreateCategoryModal = ({openModal, handleCloseModal}: Props) => {
       >
          <Box sx={styleModal}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-               Text in a modal
+               Crear Categoria
             </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            <Typography id="modal-modal-description" sx={{ mt: 2 }} component="div">
+               <TextField variant="standard" placeholder="Inserte Titulo" label="Titulo" fullWidth autoComplete="false"/>
+
+               <div style={{marginTop: '25px', display: 'flex', justifyContent: 'end', gap: '5px'}}>
+                  <Button variant="outlined" onClick={() => handleCloseModal()}>Cancelar</Button>
+                  <Button variant="contained" onClick={() => handleCloseModal()}>Confirmar</Button>
+               </div>
             </Typography>
          </Box>
       </Modal>
