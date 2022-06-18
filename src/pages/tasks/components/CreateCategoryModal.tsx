@@ -50,7 +50,7 @@ const CreateCategoryModal = ({ openModal, handleCloseModal }: Props) => {
                   />
 
                <div style={{ marginTop: '25px', display: 'flex', justifyContent: 'end', gap: '5px' }}>
-                  <Button variant="outlined" onClick={() => handleCloseModal()}>Cancelar</Button>
+                  <Button variant="outlined" onClick={() => handleCloseModal()} id='close-modal-category'>Cancelar</Button>
                   <Button variant="contained" onClick={() => handleSubmit(handleCloseModal)}>Confirmar</Button>
                </div>
             </Typography>
