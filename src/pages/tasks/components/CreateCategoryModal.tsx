@@ -35,7 +35,7 @@ const CreateCategoryModal = ({ openModal, handleCloseModal }: Props) => {
       >
          <Box sx={styleModal}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-               Crear Categoria
+               Crear Categoria Modal
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }} component="div">
                <TextField
@@ -44,7 +44,7 @@ const CreateCategoryModal = ({ openModal, handleCloseModal }: Props) => {
                   label="Titulo"
                   fullWidth
                   autoComplete="false"
-                  value={form.title}
+                  value={form?.title}
                   name="title"
                   onChange={(e) => handleChangeForm(e)}
                   />

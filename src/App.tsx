@@ -7,9 +7,6 @@ import TasksPage from './pages/tasks/TasksPage';
 function App() {
   return (
     <div className="App">
-      {/* <NotesProvider> */}
-      {/* <NotesPage /> */}
-      {/* </NotesProvider> */}
       <TaskProvider>
         <TasksPage />
       </TaskProvider>

@@ -40,11 +40,11 @@ const DrawerTask = ({ DrawerHeader, handleDrawerClose, open, theme, handleOpenMo
             </IconButton>
          </DrawerHeader>
          <Divider />
-         <Button variant="contained" color="info" style={{ width: '90%', margin: '5px auto' }} onClick={() => handleOpenModal()}>
+         <Button variant="contained" color="info" style={{ width: '90%', margin: '5px auto' }} onClick={() => handleOpenModal()} id="crear-categoria-btn">
             Crear Categoria
          </Button>
          <List>
-            {listTask.map((task) => (
+            {listTask?.map((task) => (
                <ListItem key={task.id} disablePadding>
                   <ListItemButton>
                      <ListItemText primary={task.title} />
